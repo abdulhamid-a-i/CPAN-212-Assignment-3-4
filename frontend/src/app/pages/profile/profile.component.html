@@ -1,0 +1,15 @@
+<section class="dashboard-grid" *ngIf="profile; else errorTpl">
+  <div class="glass-card">
+    <h2>Profile Overview</h2>
+    <div class="profile-grid">
+      <div><span>User ID</span><strong>{{ profile.userId }}</strong></div>
+      <div><span>Username</span><strong>{{ profile.username }}</strong></div>
+      <div><span>Email</span><strong>{{ profile.email }}</strong></div>
+      <div><span>Created</span><strong>{{ profile.createdAt }}</strong></div>
+    </div>
+  </div>
+</section>
+
+<ng-template #errorTpl>
+  <p class="error-banner" *ngIf="error">{{ error }}</p>
+</ng-template>
