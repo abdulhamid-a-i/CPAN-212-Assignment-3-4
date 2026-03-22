@@ -1,0 +1,22 @@
+<div class="app-shell">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-icon">R</div>
+      <div>
+        <h1>ResearchHub</h1>
+        <p>Research Management System</p>
+      </div>
+    </div>
+
+    <nav class="nav-links" *ngIf="authService.user()">
+      <a routerLink="/profile" routerLinkActive="active-link">User Dashboard</a>
+      <a routerLink="/projects" routerLinkActive="active-link">Projects</a>
+      <a routerLink="/projects/new" routerLinkActive="active-link">Create Project</a>
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </nav>
+  </header>
+
+  <main class="page-container">
+    <router-outlet></router-outlet>
+  </main>
+</div>
