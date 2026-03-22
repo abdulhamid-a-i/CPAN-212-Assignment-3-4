@@ -43,13 +43,14 @@ export const getProjects = async (req, res) => {
 
 
     return res.status(200).json({
-      projects: projects.map((doc) => ({
-        projectId: doc._id,
-        title: doc.title,
-        description: doc.description,
-        ownerId: doc.ownerId,
-        createdAt: doc.createdAt,
-        updatedAt: doc.updatedAt
+      projects: projects.map((pro) => ({
+        projectId: pro._id,
+        title: pro.title,
+        description: pro.description,
+        researchField: pro.researchField,
+        ownerId: pro.ownerId,
+        createdAt: pro.createdAt,
+        updatedAt: pro.updatedAt
       }))
     });
   } catch (error) {
@@ -67,6 +68,7 @@ export const getProjectById = async (req, res) => {
     projectId: project._id,
     title: project.title,
     description: project.description,
+    researchField: project.researchField,
     ownerId: project.ownerId,
     createdAt: project.createdAt,
     updatedAt: project.updatedAt
@@ -76,7 +78,7 @@ export const getProjectById = async (req, res) => {
 export const updateProject = async (req, res) => {
   try {
     const project = req.project;
-    const { title, description } = req.body;
+    const { title, description, researchField } = req.body;
 
     if (title !== undefined) {
       project.title = title.trim();
@@ -84,6 +86,10 @@ export const updateProject = async (req, res) => {
 
     if (description !== undefined) {
       project.description = description.trim();
+    }
+
+        if (researchField !== undefined) {
+      project.researchField = researchField.trim();
     }
 
     await project.save();
@@ -94,6 +100,7 @@ export const updateProject = async (req, res) => {
         projectId: project._id,
         title: project.title,
         description: project.description,
+        researchField: project,researchField,
         ownerId: project.ownerId,
         createdAt: project.createdAt,
         updatedAt: project.updatedAt
