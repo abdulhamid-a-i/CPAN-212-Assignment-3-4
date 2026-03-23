@@ -1,0 +1,38 @@
+<section class="page-header">
+  <div>
+    <h2>Project Artifacts</h2>
+    <p>Manage, edit, and protect research artifacts.</p>
+  </div>
+  <button class="primary-btn inline-btn" (click)="createArtifact()">Create New Artifact</button>
+</section>
+
+<p class="error-banner" *ngIf="error">{{ error }}</p>
+
+<div class="empty-state glass-card" *ngIf="artifacts.length === 0">
+  <h3>No artifacts yet</h3>
+  <p>Create your first artifact.</p>
+</div>
+
+<div class="documents-grid" *ngIf="artifacts.length > 0">
+  <article class="doc-card" *ngFor="let art of artifacts">
+    <div class="doc-card-top">
+      <div class="doc-icon">A</div>
+      <div>
+        <h3>{{ art.title }}</h3>
+        <h2>{{art.researchField}}</h2>
+        <p>{{ art.description }}</p>
+      </div>
+    </div>
+
+    <div class="doc-meta">
+      <span>Created: {{ art.createdAt }}</span>
+      <span>Updated: {{ art.updatedAt }}</span>
+    </div>
+
+    <div class="doc-actions">
+      <button class="secondary-btn" (click)="editArtifact(art.artifactId)">Edit</button>
+      <button class="danger-btn" (click)="deleteArtifact(art.artifactId)">Delete</button>
+    </div>
+  </article>
+
+</div>
