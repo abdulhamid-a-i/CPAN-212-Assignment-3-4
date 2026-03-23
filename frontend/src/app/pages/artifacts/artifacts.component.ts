@@ -57,6 +57,7 @@ export class ArtifactsComponent implements OnInit {
       this.cdr.detectChanges();
     } catch (err: any) {
       this.error = err?.error?.message || 'Failed to delete artifact';
+      this.cdr.detectChanges();
     }
   }
 }

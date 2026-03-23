@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -17,6 +17,7 @@ export class LoginComponent {
   };
 
   error = '';
+  private cdr = inject(ChangeDetectorRef);
 
   constructor(
     private authService: AuthService,
@@ -31,6 +32,7 @@ export class LoginComponent {
       this.router.navigate(['/profile']);
     } catch (err: any) {
       this.error = err?.error?.message || 'Login failed';
+      this.cdr.detectChanges();
     }
   }
 }
