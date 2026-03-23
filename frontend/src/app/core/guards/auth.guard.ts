@@ -1,25 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { inject } from '@angular/core';
+import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
-@Component({
-  selector: 'app-profile',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './profile.component.html'
-})
-export class ProfileComponent implements OnInit {
-  profile: any = null;
-  error = '';
+export const authGuard: CanActivateFn = async () => {
+  const authService = inject(AuthService);
+  const router = inject(Router);
 
-  constructor(private authService: AuthService) {}
+  const authenticated = await authService.loadSession();
 
-  async ngOnInit(): Promise<void> {
-    try {
-      const response: any = await this.authService.getProfile();
-      this.profile = response.user;
-    } catch (err: any) {
-      this.error = err?.error?.message || 'Failed to load profile';
-    }
+  if (!authenticated) {
+    router.navigate(['/login']);
+    return false;
   }
-}
+
+  return true;
+};
