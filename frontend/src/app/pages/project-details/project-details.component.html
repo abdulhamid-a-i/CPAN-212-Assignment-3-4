@@ -1,0 +1,30 @@
+<section class="page-header">
+  <div>
+    <h2>Project Details</h2>
+    <p>Manage, edit, and protect your projects.</p>
+  </div>
+  <a routerLink="/projects" class="primary-btn inline-btn">Go Back</a>
+</section>
+
+<p class="error-banner" *ngIf="error">{{ error }}</p>
+
+<div class="documents-grid" >
+  <article class="doc-card">
+    <div class="doc-card-top">
+      <div class="doc-icon">D</div>
+      <div>
+        <h3>{{ project.title }}</h3>
+        <h2>{{project.researchField}}</h2>
+        <div class="doc-details">
+          <p>{{ project.description }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-actions">
+      <button class="secondary-btn" (click)="editProject(project.projectId)">Edit</button>
+      <button class="danger-btn" (click)="deleteProject(project.projectId)">Delete</button>
+    </div>
+  </article>
+
+</div>

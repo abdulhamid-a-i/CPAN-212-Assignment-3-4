@@ -1,0 +1,22 @@
+<section class="form-page">
+  <div class="glass-card form-card">
+    <h2>{{ isEditMode ? 'Edit Project' : 'Create Project' }}</h2>
+
+    <form (ngSubmit)="submit()" class="styled-form">
+      <label>Title</label>
+      <input [(ngModel)]="form.title" name="title" required />
+
+      <label>Research Field</label>
+      <input [(ngModel)]="form.researchField" name="researchField" required />
+
+      <label>Description</label>
+      <textarea [(ngModel)]="form.description" name="description" rows="6" required></textarea>
+
+      <button class="primary-btn" type="submit">
+        {{ isEditMode ? 'Update Project' : 'Create Project' }}
+      </button>
+    </form>
+
+    <p class="error-banner" *ngIf="error">{{ error }}</p>
+  </div>
+</section>
