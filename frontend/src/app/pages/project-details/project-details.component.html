@@ -14,15 +14,16 @@
       <div class="doc-icon">D</div>
       <div>
         <h3>{{ project.title }}</h3>
-        <h2>{{project.researchField}}</h2>
+        <h4>Research Area: {{project.researchField}}</h4>
         <div class="doc-details">
-          <p>{{ project.description }}</p>
+          <p>Description: {{ project.description }}</p>
         </div>
       </div>
     </div>
 
     <div class="doc-actions">
       <button class="secondary-btn" (click)="editProject(project.projectId)">Edit</button>
+      <button class="secondary-btn" (click)="viewArtifacts(project.projectId)">View Artifacts</button>
       <button class="danger-btn" (click)="deleteProject(project.projectId)">Delete</button>
     </div>
   </article>

@@ -49,7 +49,7 @@ export class ProjectDetailComponent implements OnInit {
   }
 
   viewArtifacts(id: string): void {
-    this.router.navigate(['/artifacts/', id]);
+    this.router.navigate(['/projects',id,'artifacts']);
   }
 
   async deleteProject(id: string): Promise<void> {

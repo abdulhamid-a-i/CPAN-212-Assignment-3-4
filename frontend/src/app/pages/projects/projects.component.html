@@ -21,13 +21,14 @@
         <h3>{{ pro.title }}</h3>
         <h4>Research Area: {{pro.researchField}}</h4>
         <p>{{ pro.description }}</p>
+      <div class="doc-meta">
+        <span>Created: {{ pro.createdAt }}</span>
+        <span>Updated: {{ pro.updatedAt }}</span>
+      </div>
       </div>
     </div>
 
-    <div class="doc-meta">
-      <span>Created: {{ pro.createdAt }}</span>
-      <span>Updated: {{ pro.updatedAt }}</span>
-    </div>
+
 
     <div class="doc-actions">
       <button class="secondary-btn" (click)="viewProject(pro.projectId)">View Details</button>

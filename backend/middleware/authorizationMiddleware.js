@@ -24,7 +24,7 @@ export const requireProjectOwnership = async (req, res, next) => {
 
         if (!isOwner) {
       return res.status(403).json({
-        message: 'Access denied: you are not allowed to access this project'
+        message: 'Access denied: you are not authorized for this action'
       });
     }
 
@@ -61,7 +61,7 @@ export const requireArtifactOwnership = async (req, res, next) => {
     
         if (!isOwner) {
       return res.status(403).json({
-        message: 'Access denied: you are not allowed to access this artifact'
+        message: 'Access denied: you are not authorized for this action'
       });
     }
 

@@ -1,4 +1,6 @@
+import Artifact from '../models/Artifact.js';
 import Project from '../models/Project.js';
+import { getArtifacts } from './artifactController.js';
 
 export const createProject = async (req, res) => {
   try {
@@ -116,6 +118,20 @@ export const updateProject = async (req, res) => {
 
 export const deleteProject = async (req, res) => {
   try {
+    const projectId = req.params.id;
+    console.log('id: '+projectId)
+    const artifacts = await Artifact.find({
+      projectId: projectId,
+      ownerId: { $ne: req.session.userId}
+    })
+
+    if(artifacts.length > 0){
+      return res.status(403).json({
+        message: 'Access denied: Project contains other user artifacts'
+      });
+    }
+
+
     await req.project.deleteOne();
 
     return res.status(200).json({

@@ -15,24 +15,26 @@
 
 <div class="documents-grid" *ngIf="artifacts.length > 0">
   <article class="doc-card" *ngFor="let art of artifacts">
+    <div class="doc-actions">
+      <button class="secondary-btn" (click)="editArtifact(art.artifactId)">Edit</button>
+      <button class="danger-btn" (click)="deleteArtifact(art.artifactId)">Delete</button>
+    </div>
     <div class="doc-card-top">
       <div class="doc-icon">A</div>
       <div>
         <h3>{{ art.title }}</h3>
         <h2>{{art.researchField}}</h2>
         <p>{{ art.description }}</p>
+      <div class="doc-meta">
+      <span>Created: {{ art.createdAt }}</span>
+      <span>Updated: {{ art.updatedAt }}</span>
+      </div>
       </div>
     </div>
 
-    <div class="doc-meta">
-      <span>Created: {{ art.createdAt }}</span>
-      <span>Updated: {{ art.updatedAt }}</span>
-    </div>
 
-    <div class="doc-actions">
-      <button class="secondary-btn" (click)="editArtifact(art.artifactId)">Edit</button>
-      <button class="danger-btn" (click)="deleteArtifact(art.artifactId)">Delete</button>
-    </div>
+
+
   </article>
 
 </div>
