@@ -18,6 +18,10 @@
         <div class="doc-details">
           <p>Description: {{ project.description }}</p>
         </div>
+        <div class="doc-meta">
+        <span>Created: {{ project.createdAt | date: "MMM d, y, h:mm a" }}</span>
+        <span>Last Updated: {{ project.updatedAt | date: "MMM d, y, h:mm a" }}</span>
+      </div>
       </div>
     </div>
 

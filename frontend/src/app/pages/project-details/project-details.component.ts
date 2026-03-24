@@ -17,7 +17,9 @@ export class ProjectDetailComponent implements OnInit {
     description: '',
     researchField: '',
     projectId: '',
-    ownerId: ''
+    ownerId: '',
+    createdAt: '',
+    updatedAt: ''
   }
 
   constructor(

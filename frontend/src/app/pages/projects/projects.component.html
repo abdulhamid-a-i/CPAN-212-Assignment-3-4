@@ -22,8 +22,8 @@
         <h4>Research Area: {{pro.researchField}}</h4>
         <p>{{ pro.description }}</p>
       <div class="doc-meta">
-        <span>Created: {{ pro.createdAt }}</span>
-        <span>Updated: {{ pro.updatedAt }}</span>
+        <span>Created: {{ pro.createdAt | date: "MMM d, y, h:mm a" }}</span>
+        <span>Last Updated: {{ pro.updatedAt | date: "MMM d, y, h:mm a" }}</span>
       </div>
       </div>
     </div>
