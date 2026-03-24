@@ -4,7 +4,7 @@ Team: Abdulhamid Weheliye (n01756626, Section A), Mbaye Fall (n01764121, Section
 
 ## System Architecture
 
-
+![System Archtecture](screenshots/cpan-212-assign-3-4-system-diagram.drawio.png)
 
 
 
