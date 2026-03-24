@@ -26,8 +26,8 @@
         <h2>{{art.researchField}}</h2>
         <p>{{ art.description }}</p>
       <div class="doc-meta">
-      <span>Created: {{ art.createdAt }}</span>
-      <span>Updated: {{ art.updatedAt }}</span>
+      <span>Created: {{ art.createdAt | date: "MMM d, y, h:mm a" }}</span>
+      <span>Updated: {{ art.updatedAt | date: "MMM d, y, h:mm a"}}</span>
       </div>
       </div>
     </div>

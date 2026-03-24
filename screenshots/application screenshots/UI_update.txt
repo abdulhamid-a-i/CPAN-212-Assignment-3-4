@@ -1,0 +1,3 @@
+Screenshots were taken before UI updates were made.
+
+Dates will now display as shown in the registration_2.png across the application.
